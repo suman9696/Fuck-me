@@ -90,7 +90,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 			bot.send_message(message.chat.id,"**Invalid Link**", reply_to_message_id=message.id)
 
 	# getting message
-	elif "https://telegram.me/" in message.text:
+	elif "https://t.me/" in message.text:
 
 		datas = message.text.split("/")
 		temp = datas[-1].replace("?single","").split("-")
@@ -101,7 +101,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 		for msgid in range(fromID, toID+1):
 
 			# private
-			if "https://telegram.me/c/" in message.text:
+			if "https://t.me/c/" in message.text:
 				chatid = int("-100" + datas[4])
 				
 				if acc is None:
@@ -113,7 +113,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 				# except Exception as e: bot.send_message(message.chat.id,f"**Error** : __{e}__", reply_to_message_id=message.id)
 			
 			# bot
-			elif "https://telegram.me/b/" in message.text:
+			elif "https://t.me/b/" in message.text:
 				username = datas[4]
 				
 				if acc is None:
