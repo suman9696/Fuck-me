@@ -9,12 +9,20 @@ import threading
 import json
 from os import environ
 
-bot_token = environ.get("TOKEN", "") 
-api_hash = environ.get("HASH", "") 
-api_id = int(environ.get("ID", ""))
-bot = Client("mybot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
+bot_token = environ["TOKEN"]
 
-ss = environ.get("STRING", "")
+api_hash = environ["HASH"]
+
+api_id = int(environ["ID"])
+
+bot = Client(
+    "mybot",
+    api_id=api_id,
+    api_hash=api_hash,
+    bot_token=bot_token
+)
+
+ss = environ["STRING"]
 if ss is not None:
 	acc = Client("myacc" ,api_id=api_id, api_hash=api_hash, session_string=ss)
 	acc.start()
